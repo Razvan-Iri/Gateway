@@ -40,8 +40,9 @@ class Bootstrap_NavWalker extends Walker_Nav_Menu {
 		 *
 		 * 1. For WordPress default: '.sub-menu'
 		 * 2. For Bootstrap Sub-Menu: '.dropdown-menu'
+		 * 3. Replaced the Classes: submenu and venitian - to include the added menu effect
 		 */
-		$classes = array( 'sub-menu', 'dropdown-menu' );
+		$classes = array( 'submenu', 'venitian' );
 		/**
 		 * Filters the CSS class(es) applied to a menu list element.
 		 *
@@ -57,7 +58,7 @@ class Bootstrap_NavWalker extends Walker_Nav_Menu {
 		 * Change <ul> to <div> for Bootstrap Navigation
 		 * Add the current menu id for the sub-menu toggle feature for Bootstrap
 		 */
-		$output .= "{$n}{$indent}<div $class_names $id>{$n}";
+		$output .= "{$n}{$indent}<ul $class_names $id>{$n}";
 	}
 	/**
 	 * Ends the list of after the elements are added.
@@ -81,7 +82,7 @@ class Bootstrap_NavWalker extends Walker_Nav_Menu {
 		/**
 		 * Change </ul> to </div> for Bootstrap Navigation
 		 */
-		$output .= "$indent</div>{$n}";
+		$output .= "$indent</ul>{$n}";
 	}
 	/**
 	 * Starts the element output.
@@ -266,9 +267,19 @@ class Bootstrap_NavWalker extends Walker_Nav_Menu {
 		$item_output = $args->before;
 		$item_output .= '<a' . $attributes . '>';
 		$item_output .= $args->link_before . $title . $args->link_after;
-		$item_output .= '<br /><span class="sub">' . $item->description . '</span>';
+		$item_output .= '<span class="sub">' . $item->description . '</span>';
 		$item_output .= '</a>';
 		$item_output .= $args->after;
+
+		if ( $depth > 0 ) {
+			$title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
+		$item_output = $args->before;
+		$item_output .= '<li><a' . $attributes . '>';
+		$item_output .= $args->link_before . $title . $args->link_after;
+		$item_output .= '<span class="sub">' . $item->description . '</span>';
+		$item_output .= '</a></li>';
+		$item_output .= $args->after;
+		}
 		/**
 		 * Filters a menu item's starting output.
 		 * The menu item's starting output only includes `$args->before`, the opening `<a>`,

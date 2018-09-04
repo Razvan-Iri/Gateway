@@ -67,28 +67,20 @@ bloginfo('name');
          }
     ?>
   </div>
-  <div class="overlay-navigation">
-    <nav role="navigation">
+
           <?php
             wp_nav_menu( array(
                 'theme_location' => 'primary',
                 'menu_id'        => 'primary-menu',
                 'container'      => false,
                 'depth'          => 2,
-                'menu_class'     => 'navbar-nav nav',
+                'menu_class'     => 'menu',
                 'walker'         => new Bootstrap_NavWalker(),
                 'fallback_cb'    => 'Bootstrap_NavWalker::fallback',
             ) );
           ?>
-  </nav>     
-</div>
-<section class="home">
-  <div class="open-overlay">
-    <span class="bar-top"></span>
-    <span class="bar-middle"></span>
-    <span class="bar-bottom"></span>
-  </div>
-</section>
+
+
 
 
 <div id="body-content" class="container-fluid">

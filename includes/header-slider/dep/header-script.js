@@ -80,7 +80,7 @@
         pbSlider.slider_Count = 0;
         pbSlider.slider_NavWrap = '<div class="o-slider-controls"></div>';
         pbSlider.slider_NavPagination ='<ul class="o-slider-pagination"></ul>';
-        pbSlider.slider_NavArrows ='<ul class="o-slider-arrows"><li class="o-slider-prev"><i class="icon-left-open-big"></i></li><li class="o-slider-next"><i class="icon-right-open-big"></i></li></ul>';
+        pbSlider.slider_NavArrows ='<ul class="o-slider-arrows"><li class="o-slider-prev"><i class="fas fa-arrow-circle-left"></i></li><li class="o-slider-next"><i class="fas fa-arrow-circle-right"></i></li></ul>';
 
 
         /*:::::::: APPEND ANIMATION ::::::::*/
